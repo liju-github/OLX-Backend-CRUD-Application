@@ -1,6 +1,7 @@
 package service
 
 import (
+	"context"
 	"errors"
 
 	"github.com/liju-github/internal/model"
@@ -50,4 +51,12 @@ func (service *UserService) AllUsers() ([]model.User, error) {
 		return nil, errors.New(err.Error()) // Handle unexpected errors from repository
 	}
 	return users, nil
+}
+
+func (s *UserService) GetUserByEmail(email string) (*model.User, error) {
+	return s.UserRepo.GetUserByEmail(email)
+}
+
+func (service *UserService) UpdateUserImage(ctx context.Context, userEmail string, newImageUrl string) error {
+	return service.UserRepo.UpdateUserImage(ctx, userEmail, newImageUrl)
 }

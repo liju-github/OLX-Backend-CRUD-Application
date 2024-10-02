@@ -64,6 +64,9 @@ func main() {
 	authRoutes.POST("/addproduct", productController.AddProduct)
 	authRoutes.GET("/getproducts", productController.GetAllProducts)
 	authRoutes.GET("/allusers", userController.GetAllUsers)
+	authRoutes.GET("/profile",userController.GetProfile)
+	authRoutes.POST("/uploadprofile",userController.UpdateImage)
+	authRoutes.GET("/sellerprofile",userController.GetSellerProfile)
 
 	gracefulShutdown(router)
 

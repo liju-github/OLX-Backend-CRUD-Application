@@ -7,7 +7,7 @@ import (
 // Product represents a product entity in the application.
 type Product struct {
 	ID          primitive.ObjectID `bson:"_id,omitempty" json:"id"`
-	Email       string             `bson:"email" json:"email" validate:"required,email"`       // Ensured valid email format
+	Email       string             `bson:"email" json:"email"`       // Ensured valid email format
 	Name        string             `bson:"name" json:"name" validate:"required"`               // Product name is required
 	Description string             `bson:"description" json:"description" validate:"required"`               // Product name is required
 	Category    string             `bson:"category" json:"category" validate:"required"`       // Category is required

@@ -44,4 +44,10 @@ func (repo *UserRepository) GetAllUsers() ([]model.User, error) {
 }
 
 
+func (repo *UserRepository) UpdateUserImage(ctx context.Context, userEmail string, newImageUrl string) error {
+    filter := bson.M{"email": userEmail}
+    update := bson.M{"$set": bson.M{"image_url": newImageUrl}}
 
+    _, err := repo.Collection.UpdateOne(ctx, filter, update)
+    return err
+}
